@@ -1,9 +1,6 @@
 #!/usr/bin/make -f
 
+export DH_GOLANG_EXCLUDES := type_tests benchmarks
+
 %:
 	dh $@ --buildsystem=golang --with=golang
-
-override_dh_auto_build:
-	DH_GOLANG_EXCLUDES='.*_tests$$ benchmarks' dh_auto_build
-
-override_dh_auto_test:
